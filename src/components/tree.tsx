@@ -6,7 +6,7 @@ export default () => {
   return (
     <Tree>
       <div className="container">
-        <img src="https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-simple-winter-night-snowy-forest-background-material-nightsnowy-backgroundforesthappy-winter-image_84245.jpg"/>
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-simple-winter-night-snowy-forest-background-material-nightsnowy-backgroundforesthappy-winter-image_84245.jpg" />
         <div className="tree">
           <div className="shadow ts-3d" />
           <div className="trunk ts-3d">
@@ -81,7 +81,7 @@ const Tree = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+    img {
       position: absolute;
       bottom: -10px;
       min-width: 100%;
@@ -116,7 +116,7 @@ const Tree = styled.div`
     border-left: solid 40px transparent;
     border-right: solid 40px transparent;
     position: absolute;
-    top: 140px;
+    top: 155px;
     left: calc(50% - 40px);
     transform-origin: bottom;
   }
@@ -132,22 +132,22 @@ const Tree = styled.div`
   }
 
   .trunk div:nth-child(1) {
-    border-bottom: solid 260px #5e2100;
+    border-bottom: solid 245px #5e2100;
     transform: rotateX(18.2deg) translateY(15px) translateZ(40px);
   }
 
   .trunk div:nth-child(2) {
-    border-bottom: solid 260px #5e2100;
+    border-bottom: solid 245px #5e2100;
     transform: rotateY(90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
   .trunk div:nth-child(3) {
-    border-bottom: solid 260px #5e2100;
+    border-bottom: solid 245px #5e2100;
     transform: rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
   .trunk div:nth-child(4) {
-    border-bottom: solid 260px #5e2100;
+    border-bottom: solid 245px #5e2100;
     transform: rotateY(-90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
@@ -212,22 +212,22 @@ const Tree = styled.div`
   }
 
   .leaves-top div:nth-child(1) {
-    border-bottom: solid 140px #2fb82f;
+    border-bottom: solid 130px #2fb82f;
     transform: rotateX(25.5deg) translateY(15px) translateZ(50px);
   }
 
   .leaves-top div:nth-child(2) {
-    border-bottom: solid 140px #5fe85f;
+    border-bottom: solid 130px #5fe85f;
     transform: rotateY(90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 
   .leaves-top div:nth-child(3) {
-    border-bottom: solid 140px #2fb82f;
+    border-bottom: solid 130px #2fb82f;
     transform: rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 
   .leaves-top div:nth-child(4) {
-    border-bottom: solid 140px #5fe85f;
+    border-bottom: solid 130px #5fe85f;
     transform: rotateY(-90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 

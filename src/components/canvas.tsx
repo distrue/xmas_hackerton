@@ -1,15 +1,15 @@
 import React from 'react';
 
-export default ({setHead, setMV}:any) => {
+export default ({ setHead, setMV }: any) => {
   const [backShow, setBackShow] = React.useState(true);
-  const pos:any = { drawing: false, X: -1, Y: -1 };
+  const pos: any = { drawing: false, X: -1, Y: -1 };
   let ctx: any;
   const offset = { Left: 20, Top: 20 };
   const start = { X: 0, Y: 0 };
   let canvas: any;
-  let type:any = "pc";
-  let backImg:any;
-  let fr = new FileReader();
+  let type: any = 'pc';
+  let backImg: any;
+  let fr: any;
   let rW: number;
   let rH: number;
 
@@ -74,13 +74,12 @@ export default ({setHead, setMV}:any) => {
 
   function getPosition(event: any) {
     let x, y;
-    if(type === "mobile") {
+    if (type === 'mobile') {
       console.log(event.touches[0].pageX);
       console.log(event.touches[0].pageY);
       x = event.touches[0].pageX - canvas.offsetLeft;
       y = event.touches[0].pageY - canvas.offsetTop;
-    }
-    else {
+    } else {
       x = event.pageX - canvas.offsetLeft;
       y = event.pageY - canvas.offsetTop;
     }
@@ -89,31 +88,30 @@ export default ({setHead, setMV}:any) => {
 
   const listener = (event: any) => {
     console.log(event.type);
-    if(!isMobile()) {
+    if (!isMobile()) {
       switch (String(event.type)) {
         case 'mousedown':
           initDraw(event);
           break;
         case 'mousemove':
-          if(pos.drawing) draw(event);
+          if (pos.drawing) draw(event);
           break;
         case 'mouseup':
           endDraw();
           break;
       }
-    }
-    else {
-      type = "mobile";
+    } else {
+      type = 'mobile';
       switch (String(event.type)) {
         case 'touchstart':
           initDraw(event);
           break;
         case 'touchmove':
-          if(pos.drawing) draw(event);
-          break;  
+          if (pos.drawing) draw(event);
+          break;
         case 'touchend':
           endDraw();
-          break;  
+          break;
       }
     }
   };
@@ -140,21 +138,22 @@ export default ({setHead, setMV}:any) => {
     setMV(false);
   };
 
-  const upload = (e:any) => {
-    fr.onload = function () {
-        const it = document.getElementById('see') as HTMLImageElement;
-        if(it === null) return;
-        it.src = fr.result as string;
-        backImg = fr.result;
-        it.onload = () => {
-          rW = it.width;
-          rH = it.height;
-          console.log(rW, rH);
-        }
-    }
+  const upload = (e: any) => {
+    fr = new FileReader();
+    fr.onload = function() {
+      const it = document.getElementById('see') as HTMLImageElement;
+      if (it === null) return;
+      it.src = fr.result as string;
+      backImg = fr.result;
+      it.onload = () => {
+        rW = it.width;
+        rH = it.height;
+        console.log(rW, rH);
+      };
+    };
     fr.readAsDataURL(e.target.files[0]);
     console.log();
-  }
+  };
 
   return (
     <div>
@@ -164,15 +163,16 @@ export default ({setHead, setMV}:any) => {
       <button type="button" onClick={apply}>
         apply
       </button>
-      <input type="file" onChange={upload} accept=".jpg, .jpeg, .png"/>
+      <input type="file" onChange={upload} accept=".jpg, .jpeg, .png" />
       <br />
-      <img id= "see"
+      <img
+        id="see"
         style={{
           display: backShow ? 'block' : 'none',
           opacity: '1',
           position: 'absolute',
           maxWidth: '90vw',
-          minWidth: "300px",
+          minWidth: '300px',
           maxHeight: '90vh',
           top: '20',
           left: '20',
@@ -181,7 +181,15 @@ export default ({setHead, setMV}:any) => {
       />
       <canvas
         id="Hello"
-        style={{ border: '1px solid black', position: 'absolute', left: '20', top: '20', maxWidth:'90vw', minWidth:"300px", maxHeight:'90vh',}}
+        style={{
+          border: '1px solid black',
+          position: 'absolute',
+          left: '20',
+          top: '20',
+          maxWidth: '90vw',
+          minWidth: '300px',
+          maxHeight: '90vh',
+        }}
         onMouseDown={listener}
         onMouseMove={listener}
         onMouseUp={listener}
