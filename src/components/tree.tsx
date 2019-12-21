@@ -6,6 +6,7 @@ export default () => {
   return (
     <Tree>
       <div className="container">
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-simple-winter-night-snowy-forest-background-material-nightsnowy-backgroundforesthappy-winter-image_84245.jpg"/>
         <div className="tree">
           <div className="shadow ts-3d" />
           <div className="trunk ts-3d">
@@ -72,14 +73,21 @@ const Tree = styled.div`
   }
 
   .container {
+    position: relative;
     background-color: #c2c2c2;
     width: 100%;
-    height: 600px;
-    min-height: 100%;
+    height: 500px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    img{
+      position: absolute;
+      bottom: -10px;
+      min-width: 100%;
+      min-height: 100%;
+      opacity: 0.7;
+    }
   }
 
   .tree {

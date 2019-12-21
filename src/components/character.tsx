@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 
 export default () => {
-    const LeftArm = ({animation,armPath}:any) =>{
+    const LeftArm = ({animation,armPath}) =>{
         return(
-            <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+            <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200">
                 { animation === 'typing' && <path className="arm-typing-left" d={armPath} /> }
                 { animation === 'stressed' && <path className="arm-typing-left" d={armPath} /> }
                 <path d="M175.27,192 L190,164.44" />
@@ -15,9 +15,9 @@ export default () => {
         );
     }
 
-    const RightArm =({animation,armPath}:any)=>{
+    const RightArm =({animation,armPath})=>{
         return(
-            <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+            <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200">
             { animation === 'stressed' && <path className="arm-typing-right" d={armPath} /> }
             { animation === 'waiting' && <path d="M207.26,171.26s45.19,85-75.76,72.24" /> }
             <path className="arm-thinking-right" d="M110.48,162L125,195" />
@@ -29,7 +29,7 @@ export default () => {
 
     const Body=()=>{
         return(
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200">
                 <g id="body">
                     <circle className="character__body -part-1" cx="150.71" cy="152.62" r="22.88" onClick={() => {window.location.href="/canvas"}}/>
                     <circle className="character__body -part-2" cx="150.71" cy="200.06" r="35"/>
@@ -39,7 +39,7 @@ export default () => {
     }
 
     return(
-        <Snowman>
+        <Snowman style={{position: "absolute", top:"40%", left:"15%"}}>
             <svg className={`dancing`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
                 <Body/>
                 <LeftArm/>
@@ -51,18 +51,19 @@ export default () => {
 
 const Snowman=styled.div`
 position: absolute;
-width: 90vw;
-height: 90vh;
+width: 300px;
+height: 300px;
 top: 0;
 svg.dancing{
+
     position: relative;
-    left: -30%;
+    width:300px;
     .character {
     position: relative;
     
     &__body {
         fill: #FFFFFF;
-        transform-origin: center;
+        transform-origin: 150px 200px;
         transition: transform 0.3s ease; z-index: 3;
     }
     
@@ -169,24 +170,20 @@ svg.dancing{
 }
 
 @keyframes shake {
-  10%, 90% {
+  12.5%, 87.5% {
     transform: rotate(-20deg);
-    transform-origin: center;
   }
   
-  20%, 80% {
+  25%, 75% {
     transform: rotate(20deg);
-    transform-origin: center;
   }
 
-  30%, 50%, 70% {
+  37.5%, 62.5% {
     transform: rotate(-20deg);
-    transform-origin: center;
   }
 
-  40%, 60% {
-    transform: translate3d(20deg);
-    transform-origin: center;
+  50% {
+    transform: rotate(20deg);
   }
 }
 `

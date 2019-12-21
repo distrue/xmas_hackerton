@@ -119,6 +119,10 @@ export default () => {
     }
   };
 
+  const upload = () => {
+    
+  }
+
   return (
     <div>
       <button type="button" onClick={download}>
