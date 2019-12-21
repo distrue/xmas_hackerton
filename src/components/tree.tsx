@@ -113,122 +113,122 @@ const Tree = styled.div`
   .trunk div {
     width: 0;
     border-top: none;
-    border-left: solid 50px transparent;
-    border-right: solid 50px transparent;
+    border-left: solid 40px transparent;
+    border-right: solid 40px transparent;
     position: absolute;
-    top: 100px;
-    left: calc(50% - 50px);
+    top: 140px;
+    left: calc(50% - 40px);
     transform-origin: bottom;
   }
 
   .leaves-bottom div {
     border-top: none;
-    border-left: solid 100px transparent;
-    border-right: solid 100px transparent;
-    position: absolute;
-    top: 20px;
-    left: calc(50% - 100px);
-    transform-origin: bottom;
-  }
-
-  .trunk div:nth-child(1) {
-    border-bottom: solid 300px #5e2100;
-    transform: rotateX(18.2deg) translateY(15px) translateZ(50px);
-  }
-
-  .trunk div:nth-child(2) {
-    border-bottom: solid 300px #5e2100;
-    transform: rotateY(90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(50px * -1));
-  }
-
-  .trunk div:nth-child(3) {
-    border-bottom: solid 300px #5e2100;
-    transform: rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(50px * -1));
-  }
-
-  .trunk div:nth-child(4) {
-    border-bottom: solid 300px #5e2100;
-    transform: rotateY(-90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(50px * -1));
-  }
-
-  .leaves-bottom div:nth-child(1) {
-    border-bottom: solid 320px #0f980f;
-    transform: rotateX(18.2deg) translateY(15px) translateZ(100px);
-  }
-
-  .leaves-bottom div:nth-child(2) {
-    border-bottom: solid 320px #3fc83f;
-    transform: rotateY(90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(100px * -1));
-  }
-
-  .leaves-bottom div:nth-child(3) {
-    border-bottom: solid 320px #0f980f;
-    transform: rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(100px * -1));
-  }
-
-  .leaves-bottom div:nth-child(4) {
-    border-bottom: solid 320px #3fc83f;
-    transform: rotateY(-90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(100px * -1));
-  }
-
-  .leaves-middle div {
-    border-top: none;
     border-left: solid 80px transparent;
     border-right: solid 80px transparent;
     position: absolute;
-    top: 20px;
+    top: 60px;
     left: calc(50% - 80px);
     transform-origin: bottom;
   }
 
-  .leaves-middle div:nth-child(1) {
-    border-bottom: solid 220px #1fa81f;
-    transform: rotateX(21.4deg) translateY(15px) translateZ(80px);
+  .trunk div:nth-child(1) {
+    border-bottom: solid 260px #5e2100;
+    transform: rotateX(18.2deg) translateY(15px) translateZ(40px);
   }
 
-  .leaves-middle div:nth-child(2) {
-    border-bottom: solid 220px #4fd84f;
-    transform: rotateY(90deg) rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  .trunk div:nth-child(2) {
+    border-bottom: solid 260px #5e2100;
+    transform: rotateY(90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
-  .leaves-middle div:nth-child(3) {
-    border-bottom: solid 220px #1fa81f;
-    transform: rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  .trunk div:nth-child(3) {
+    border-bottom: solid 260px #5e2100;
+    transform: rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
-  .leaves-middle div:nth-child(4) {
-    border-bottom: solid 220px #4fd84f;
-    transform: rotateY(-90deg) rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  .trunk div:nth-child(4) {
+    border-bottom: solid 260px #5e2100;
+    transform: rotateY(-90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(40px * -1));
   }
 
-  .leaves-top div {
+  .leaves-bottom div:nth-child(1) {
+    border-bottom: solid 280px #0f980f;
+    transform: rotateX(18.2deg) translateY(15px) translateZ(80px);
+  }
+
+  .leaves-bottom div:nth-child(2) {
+    border-bottom: solid 280px #3fc83f;
+    transform: rotateY(90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  }
+
+  .leaves-bottom div:nth-child(3) {
+    border-bottom: solid 280px #0f980f;
+    transform: rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  }
+
+  .leaves-bottom div:nth-child(4) {
+    border-bottom: solid 280px #3fc83f;
+    transform: rotateY(-90deg) rotateX(calc(18.2deg * -1)) translateY(15px) translateZ(calc(80px * -1));
+  }
+
+  .leaves-middle div {
     border-top: none;
     border-left: solid 60px transparent;
     border-right: solid 60px transparent;
     position: absolute;
-    top: 20px;
+    top: 50px;
     left: calc(50% - 60px);
+    transform-origin: bottom;
+  }
+
+  .leaves-middle div:nth-child(1) {
+    border-bottom: solid 190px #1fa81f;
+    transform: rotateX(21.4deg) translateY(15px) translateZ(60px);
+  }
+
+  .leaves-middle div:nth-child(2) {
+    border-bottom: solid 190px #4fd84f;
+    transform: rotateY(90deg) rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+  }
+
+  .leaves-middle div:nth-child(3) {
+    border-bottom: solid 190px #1fa81f;
+    transform: rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+  }
+
+  .leaves-middle div:nth-child(4) {
+    border-bottom: solid 190px #4fd84f;
+    transform: rotateY(-90deg) rotateX(calc(21.4deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+  }
+
+  .leaves-top div {
+    border-top: none;
+    border-left: solid 50px transparent;
+    border-right: solid 50px transparent;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 50px);
     transform-origin: bottom;
   }
 
   .leaves-top div:nth-child(1) {
     border-bottom: solid 140px #2fb82f;
-    transform: rotateX(25.5deg) translateY(15px) translateZ(60px);
+    transform: rotateX(25.5deg) translateY(15px) translateZ(50px);
   }
 
   .leaves-top div:nth-child(2) {
     border-bottom: solid 140px #5fe85f;
-    transform: rotateY(90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+    transform: rotateY(90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 
   .leaves-top div:nth-child(3) {
     border-bottom: solid 140px #2fb82f;
-    transform: rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+    transform: rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 
   .leaves-top div:nth-child(4) {
     border-bottom: solid 140px #5fe85f;
-    transform: rotateY(-90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(60px * -1));
+    transform: rotateY(-90deg) rotateX(calc(25.5deg * -1)) translateY(15px) translateZ(calc(50px * -1));
   }
 
   @keyframes tree-rotate {
@@ -355,31 +355,5 @@ const Tree = styled.div`
     transform: rotate(287deg);
     top: -33px;
     left: -44px;
-  }
-
-  .shine {
-    background: #ffeb69;
-    height: 90px;
-    width: 90px;
-    position: absolute;
-    top: -45px;
-    left: calc(50% - 45px);
-    border-radius: 50%;
-    transform: translateZ(40px);
-    filter: blur(20px);
-    opacity: 0.6;
-    animation: 5s shine linear infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      transform: scale(1) translateZ(40px);
-    }
-    50% {
-      transform: scale(1.5) translateZ(40px);
-    }
-    100% {
-      transform: scale(1) translateZ(40px);
-    }
   }
 `;

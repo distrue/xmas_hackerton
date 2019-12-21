@@ -1,13 +1,17 @@
 import React from 'react';
 
-export default () => {
+export default ({setHead, setMV}:any) => {
   const [backShow, setBackShow] = React.useState(true);
   const pos:any = { drawing: false, X: -1, Y: -1 };
   let ctx: any;
-  const offset = { Left: 0, Top: 0 };
+  const offset = { Left: 20, Top: 20 };
   const start = { X: 0, Y: 0 };
   let canvas: any;
   let type:any = "pc";
+  let backImg:any;
+  let fr = new FileReader();
+  let rW: number;
+  let rH: number;
 
   React.useEffect(() => {
     canvas = document.getElementById('Hello') as HTMLCanvasElement;
@@ -15,13 +19,21 @@ export default () => {
       canvas.width = 500;
       canvas.height = 500;
       ctx = canvas.getContext('2d');
-      console.log(ctx);
-      offset.Left = canvas.offsetLeft;
-      offset.Top = canvas.offsetTop;
     }
   }, []);
 
   function initDraw(event: any) {
+    canvas = document.getElementById('Hello') as HTMLCanvasElement;
+    if (canvas) {
+      const img = document.getElementById('see') as HTMLCanvasElement;
+      console.dir(img);
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx = canvas.getContext('2d');
+      console.log(ctx);
+      offset.Left = canvas.offsetLeft;
+      offset.Top = canvas.offsetTop;
+    }
     ctx.beginPath();
     pos.drawing = true;
     const coors = getPosition(event);
@@ -47,12 +59,12 @@ export default () => {
     ctx.closePath();
     setBackShow(false);
     const background = new Image();
-    background.src = 'https://www.instagram.com/static/images/ico/apple-touch-icon-180x180-precomposed.png/c06fdb2357bd.png';
+    background.src = backImg;
     background.crossOrigin = 'Anonymous';
     background.onload = () => {
       console.log('!');
       ctx.clip();
-      ctx.drawImage(background, 0, 0, 100, 100);
+      ctx.drawImage(background, 0, 0, rW, rH);
     };
   }
 
@@ -119,8 +131,29 @@ export default () => {
     }
   };
 
-  const upload = () => {
-    
+  const apply = () => {
+    const docu = document;
+    const img = docu.getElementById('Hello') as HTMLCanvasElement;
+    if (!img) return;
+    const data = img.toDataURL('image/png', 'image/octet-stream');
+    setHead(data);
+    setMV(false);
+  };
+
+  const upload = (e:any) => {
+    fr.onload = function () {
+        const it = document.getElementById('see') as HTMLImageElement;
+        if(it === null) return;
+        it.src = fr.result as string;
+        backImg = fr.result;
+        it.onload = () => {
+          rW = it.width;
+          rH = it.height;
+          console.log(rW, rH);
+        }
+    }
+    fr.readAsDataURL(e.target.files[0]);
+    console.log();
   }
 
   return (
@@ -128,25 +161,27 @@ export default () => {
       <button type="button" onClick={download}>
         download
       </button>
+      <button type="button" onClick={apply}>
+        apply
+      </button>
+      <input type="file" onChange={upload} accept=".jpg, .jpeg, .png"/>
       <br />
-      <img
+      <img id= "see"
         style={{
           display: backShow ? 'block' : 'none',
           opacity: '1',
           position: 'absolute',
-          width: '100px',
-          height: 'auto',
+          maxWidth: '90vw',
+          minWidth: "300px",
+          maxHeight: '90vh',
           top: '20',
           left: '20',
         }}
-        alt="img"
-        src={'https://www.instagram.com/static/images/ico/apple-touch-icon-180x180-precomposed.png/c06fdb2357bd.png'}
+        alt="이미지를 업로드하세요!"
       />
       <canvas
         id="Hello"
-        style={{ border: '1px solid black', position: 'absolute', left: '20', top: '20', width: '500px', height: '500px',maxWidth:'90vw',
-        maxHeight:'90vh',
-         }}
+        style={{ border: '1px solid black', position: 'absolute', left: '20', top: '20', maxWidth:'90vw', minWidth:"300px", maxHeight:'90vh',}}
         onMouseDown={listener}
         onMouseMove={listener}
         onMouseUp={listener}
