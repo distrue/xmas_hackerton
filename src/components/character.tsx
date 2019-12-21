@@ -14,30 +14,22 @@ export default ({head, setMV}:any) => {
     const LeftArm = () =>{
         return(
             <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200">
-                { armPath=== 0 && <path d="M175.27,192 L190,164.44" />}
-                { armPath=== 1 && <path className="swing right" d="M175.27,192 L170,164.44" />}
-                { armPath=== 2 && <path d="M175.27,192 L150,164.44" />}
+                { armPath=== 0 && <path d="M175,192 C 175 180, 178 160,185 150" />}
+                { armPath=== 1 && <path className="swing left" d="M175,192 C 175 180, 178 160,185 150"/>}
+                { armPath=== 2 && <path className="swipe left" d="M175,192 C 175 180, 178 160,185 150" />}
             </svg>
-        );
-    }
-    const RightArm =()=>{
-        return(
-            <svg className="arm" xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200">
-                { armPath=== 0 && <path d="M125,192 L110.48,162" />}
-                { armPath=== 1 && <path className="swing left" d="M125,192 L110.48,162" />}
-                { armPath=== 2 && <path d="M125,192 L110.48,162" />}
-          </svg>
         );
     }
 
     const Body=()=>{
         return(
             <>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 100 200"onContextMenu={changeArm}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 120 100 160"onContextMenu={changeArm}>
                 <g>
                     {head?"":
-                    <circle className="character__body -part-1" cx="150.71" cy="152.62" r="22.88" onClick={() => {setMV(true)}}/>}
-                    <circle className="character__body -part-1" style={{fill:"#FFFFFF"}} cx="150.71" cy="212.62" r="38.88"/>
+                    <circle className="character__body -part-1" style={{fill:"#581d1d"}} cx="150.71" cy="162.62" r="22.88" onClick={() => {setMV(true)}}/>}
+                    <circle className="character__body -part-1" style={{fill:"#FFFFFF"}} cx="150.71" cy="202.62" r="24.88" stroke="#707070" stroke-width="1"/>
+                    <circle className="character__body -part-1" style={{fill:"#FFFFFF"}} cx="150.71" cy="232.62" r="30.88" stroke="#707070" stroke-width="1"/>
                 </g>
                 {head?
                 <foreignObject x={107.83} y={109.84} width={160} height={160} id="body">
@@ -54,7 +46,6 @@ export default ({head, setMV}:any) => {
             <svg className={`dancing`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
                 <Body/>
                 <LeftArm/>
-                <RightArm/>
             </svg>
         </Snowman>
     ); 
@@ -108,11 +99,11 @@ svg.dancing{
         .swing{
             animation:swing 3s ease-in-out infinite;
         }
-        .swing.right{
+        .left{
             transform-origin:175.27px 192px;
         }
-        .swing.left{
-            transform-origin:125px 192px;
+        .swipe{
+            animation:swipe 0.5s ease-in-out infinite;
         }
         @keyframes swing{
           0%, 25%, 50%, 75%, 100%{
@@ -125,7 +116,38 @@ svg.dancing{
     }
 
 }
-
+@keyframes swipe{
+          10% {
+              transform:rotate(36deg);
+          }
+          20% {
+              transform:rotate(72deg);
+          }
+          30% {
+              transform:rotate(108deg);
+          }
+          40% {
+              transform:rotate(144deg);
+          }
+          50% {
+              transform:rotate(180deg);
+          }
+          60% {
+              transform:rotate(216deg);
+          }
+          70% {
+              transform:rotate(252deg);
+          }
+          80% {
+              transform:rotate(288deg);
+          }
+          90% {
+              transform:rotate(324deg);
+          }
+          100% {
+              transform:rotate(360deg);
+          }
+        }
 
 @keyframes shake {
   12.5%, 87.5% {

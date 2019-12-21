@@ -23,7 +23,7 @@ export default () => {
         case "drag":
             console.log(event.pageX, event.pageY);
             if(event.pageX !== 0 && event.pageY !== 0) {
-                if(crtPst.now === "pc") setCrtPst({...crtPst, x: event.pageX, y: event.pageY})
+                if(crtPst.now === "pc") setCrtPst({...crtPst, x: event.pageX - (window.innerWidth / 2) + 150, y: event.pageY})
             }
             break
         case "dragend":
@@ -35,7 +35,7 @@ export default () => {
             break
         case "touchmove":
             console.log(event.touches[0].pageX, event.touches[0].pageY);
-            if(crtPst.now === "mobile") setCrtPst({...crtPst, x: event.touches[0].pageX, y: event.touches[0].pageY})
+            if(crtPst.now === "mobile") setCrtPst({...crtPst, x: event.touches[0].pageX - (window.innerWidth / 2) + 150, y: event.touches[0].pageY})
             break
         case "touchend":
             setCrtPst({...crtPst, now: "none"})

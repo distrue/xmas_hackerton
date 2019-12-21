@@ -1,3 +1,7 @@
+import audio from '../images/audio.png';
+import download from '../images/download.png';
+import recordA from '../images/record.png';
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Canvas, Tree, Snow, Character, StickerList, Screen } from '../components';
@@ -40,8 +44,9 @@ export default withLocation((props: any) => {
   return (
     <div style={{ position: "absolute", top:"0", left:"0", width:"100vw", height:"100vh", backgroundImage: "linear-gradient(to right top, #711b0d, #6b1b12, #651b17, #5f1c1a, #581d1d)"}}>
       <ShowCanvas>
-        <button type="button" style={{position:"absolute", right: "20px", top: "10px", zIndex: 3}} onClick={() => record()}>record</button>
-        <button type="button" style={{position:"absolute", right: "20px", top: "35px", zIndex: 3}} onClick={() => stopCapture()}>download</button>
+        <img src={recordA} style={{position:"absolute", left: "10px", bottom: "13px", zIndex: 3, width:"20px", height:"20px"}} onClick={() => record()}/>
+        <img src={download} style={{position:"absolute", left: "34px", bottom: "13px", zIndex: 3, width:"20px", height:"20px"}} onClick={() => stopCapture()}/>
+        <img src={audio} style={{position:"absolute", left: "56px", bottom: "13px", zIndex: 3, width:"20px", height:"20px"}}/>
         <Helmet title="XMAS" defer={false}>
           <link href="https://fonts.googleapis.com/css?family=Parisienne&display=swap" rel="stylesheet"/>
           <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap" rel="stylesheet"/>
