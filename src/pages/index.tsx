@@ -10,8 +10,8 @@ export default withLocation((props: any) => {
       <Helmet title="XMAS" defer={false} />
       <Tree />
       <Snow />
-      <Character />
       <StickerList/>
+      <Character />
     </Screen>
   );
 });
